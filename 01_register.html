@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>Register</title>
+
+    <style>
+        html {
+            font-size: 62.5%;
+            font-family: 'Lato', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container-register {
+            width: 100%;
+            height: 100vh;
+            background-image: url(./resources/img/pexels-photo-1061142.jpg);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #table-register {
+            background-color: #fff;
+            box-shadow: 2px 2px px 2px #cc6119;
+            width: 400px;
+            height: 550px;
+            border-radius: 5px;
+            padding: 30px 55px;
+            text-align: center;
+        }
+
+        #table-register h2 {
+            font-size: 25px;
+            color: #000;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            border-bottom: 3px solid #cc6119;
+
+        }
+
+        .content-register input {
+            padding: 10px 60px;
+            margin-top: 20px;
+            outline: none;
+            background-color: #f2f3f5;
+            border: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .isEmpty {
+            text-align: left;
+        }
+
+        .content-register i {
+            position: relative;
+            left: 20px;
+        }
+
+        #login {
+            padding: 10px 118.08px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            background-color: hsl(24, 78%, 45%);
+        }
+
+        #login:hover,
+        #login:active {
+            background-color: rgba(204, 97, 25, 0.9);
+            box-shadow: 1px 1px #000;
+        }
+
+        #forgot-password {
+            display: block;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #000;
+            margin-bottom: 30px;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        #register-or span {
+            display: inline-block;
+            padding: 1px 5px;
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        #register-or {
+            margin: 20px 0;
+            font-size: 13px;
+            color: #999;
+            position: relative;
+            color: #000;
+
+        }
+
+        #register-or::after {
+            content: "";
+            width: 100%;
+            height: 3px;
+            background-color: #cc6119;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        #social-register {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #social-register a {
+            text-decoration: none;
+            /* padding: 5px 30px; */
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        #social-register li {
+            list-style: none;
+        }
+
+        .facebook-register {
+            background-color: #0f92f3;
+            padding: 10px 0;
+            width: 130px;
+            text-align:left
+        }
+
+        .facebook-register:hover,
+        .facebook-register:active {
+            background-color: rgba(18, 145, 243, 0.9);
+        }
+
+        .github-register {
+            background-color: #24292f;
+            padding: 10px 0;
+            width: 130px;
+            text-align:left
+        }
+
+        .github-register:hover,
+        .github-register:active {
+            background-color: rgba(36, 41, 47, 0.9);
+        }
+
+        .log-in-account {
+            margin-top: 20px;
+            font-size: 15px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .log-in-account a {
+            text-decoration: none;
+            color: #cc6119;
+        }
+
+        .registor-or-list {
+            margin-top: 40px;
+        }
+
+        /* .inputWithIcon i {
+            position: relative;
+            top: -35px;
+            left: -115px;
+            padding: 10px 18px;
+            background-color: #cc6119;
+            font-size: 15px;
+            color: #fff;
+        } */
+
+    </style>
+
+</head>
+<body>
+    <div id="container-register">
+        <div id="table-register">
+            <h2 id="content-login">Login</h2>
+            <div class="content-register">
+                <div class="inputWithIcon">
+                    <input id="account-infor" type="text" placeholder="Email or Phone">
+                    <!-- <i class="fas fa-user-alt"></i> -->
+                </div>
+                <p class="isEmpty"></p>
+                <div class="inputWithIcon">
+                    <input id="password-infor" type="text" placeholder="Password">
+                    <!-- <i class="fas fa-lock"></i> -->
+                </div>
+                <p class="isEmpty"></p>
+                <a href="#" id="forgot-password">Forgot Password?</a>
+                <a id="login" href="#">LOGIN</a>
+                <div class="registor-or-list">
+                    <div id="register-or">
+                        <span>Or login with</span>
+                    </div>
+                </div>
+                <div id="social-register">
+                    <div class="facebook-register">
+                        <a href="#"><i class="fab fa-facebook-f"> Facebook</i></a>
+                        
+                    </div>
+                    <div class="github-register">
+                        <a href="#"><i class="fab fa-github-square"> Github</i></a>
+                    </div>
+                </div>
+                <p class="log-in-account">Don't have account?<a id="sign-up-changed" href="#"> Signup Now</a></p>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        function isAccount() {
+            var account = document.getElementById('account-infor').value;
+            if (account == "") {
+                document.getElementsByClassName('isEmpty').innerHTML += 'Tên đăng nhập đang trống';
+            }
+        }
+
+        function Signup() {
+            var signup = document.getElementById('sign-up-changed');
+            var login = document.getElementById('content-login');
+        }
+
+    </script> -->
+</body>
+</html>
