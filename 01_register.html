@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <script src="./04_object_register.js"></script>
     <title>Register</title>
 
     <style>
@@ -142,7 +144,7 @@
             background-color: #0f92f3;
             padding: 10px 0;
             width: 130px;
-            text-align:left
+            text-align: left
         }
 
         .facebook-register:hover,
@@ -154,7 +156,7 @@
             background-color: #24292f;
             padding: 10px 0;
             width: 130px;
-            text-align:left
+            text-align: left
         }
 
         .github-register:hover,
@@ -177,7 +179,7 @@
             margin-top: 40px;
         }
 
-        /* .inputWithIcon i {
+        .inputWithIcon i {
             position: relative;
             top: -35px;
             left: -115px;
@@ -185,28 +187,37 @@
             background-color: #cc6119;
             font-size: 15px;
             color: #fff;
-        } */
+        }
 
+        #isEmpty1,
+        #isEmpty2 {
+            color: red;
+        }
+
+        .isEmpty {
+            margin-top: -15px;
+        }
     </style>
 
 </head>
+
 <body>
     <div id="container-register">
         <div id="table-register">
-            <h2 id="content-login">Login</h2>
+            <h2 id="content-login">Sign up</h2>
             <div class="content-register">
                 <div class="inputWithIcon">
-                    <input id="account-infor" type="text" placeholder="Email or Phone">
-                    <!-- <i class="fas fa-user-alt"></i> -->
+                    <input id="account-infor" type="text" placeholder="Email or Phone" maxlength="30">
+                    <i class="fas fa-user-alt"></i>
+                    <p class="isEmpty" id="isEmpty1"></p>
                 </div>
-                <p class="isEmpty"></p>
                 <div class="inputWithIcon">
-                    <input id="password-infor" type="text" placeholder="Password">
-                    <!-- <i class="fas fa-lock"></i> -->
+                    <input id="password-infor" type="password" placeholder="Password" maxlength="20">
+                    <i class="fas fa-lock"></i>
+                    <p class="isEmpty" id="isEmpty2"></p>
                 </div>
-                <p class="isEmpty"></p>
                 <a href="#" id="forgot-password">Forgot Password?</a>
-                <a id="login" href="#">LOGIN</a>
+                <a id="login" href="#" onclick="addAccount();">LOGIN</a>
                 <div class="registor-or-list">
                     <div id="register-or">
                         <span>Or login with</span>
@@ -215,29 +226,100 @@
                 <div id="social-register">
                     <div class="facebook-register">
                         <a href="#"><i class="fab fa-facebook-f"> Facebook</i></a>
-                        
+
                     </div>
                     <div class="github-register">
                         <a href="#"><i class="fab fa-github-square"> Github</i></a>
                     </div>
                 </div>
-                <p class="log-in-account">Don't have account?<a id="sign-up-changed" href="#"> Signup Now</a></p>
+                <div id="sign-up-changed">
+                    <p class="log-in-account">Don't have account?<a onclick="Signup();" href="#"> Signup Now</a></p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- <script>
-        function isAccount() {
-            var account = document.getElementById('account-infor').value;
-            if (account == "") {
-                document.getElementsByClassName('isEmpty').innerHTML += 'Tên đăng nhập đang trống';
-            }
-        }
+    <script>
+        // function isAccount() {
+        //     var account = document.getElementById('account-infor').value;
+        //     if (account == '') {
+        //         // document.getElementsByClassName('isEmpty').innerHTML += 'Tên đăng nhập đang trống';
+        //         alert('Tên không nhập đang trống');
+        //         return 0;
+        //     }
+        // }
 
         function Signup() {
             var signup = document.getElementById('sign-up-changed');
             var login = document.getElementById('content-login');
+            var forget = document.getElementById('forgot-password');
+            signup.innerHTML = '';
+            login.innerHTML = 'Sign in';
+            forget.innerHTML = '';
+        }
+    </script>
+    <script>
+        var listUser = localStorage.getItem(listUser);
+        if (listUser == null) {
+            listUser = new Array();
         }
 
-    </script> -->
+        function addAccount() {
+
+            var account = document.getElementById('account-infor').value;
+            if (account == '') {
+                document.getElementById('isEmpty1').innerHTML = 'Tên đăng nhập đang trống';
+            }
+
+            var password = document.getElementById('password-infor').value;
+            if (password == '') {
+                document.getElementById('isEmpty2').innerHTML = 'Mật khẩu đang trống';
+            }
+
+            // * Tạo đối tượng tài khoản dành cho user
+            let listusers = localStorage.getItem('listusers') ? JSON.parse(localStorage.getItem('listusers')) : [];
+
+            listusers.push({
+                password: password,
+                account: account,
+            });
+
+            localStorage.setItem('listusers', JSON.stringify(listusers));
+            for (var i = 0; i < listusers.length; i++) {
+                if (listusers[i].account == account && listusers[i].password == password) {
+                    window.location.href = "http://127.0.0.1:5500/index.html";
+                    break;
+                } else if (listusers[i].account == 'admin' && listusers[i].password == 'admin') {
+                    window.location.href = "http://127.0.0.1:5500/ADMIN/admin/01_admin.html";
+                    break;
+                }
+            }
+
+        }
+
+        // function isSignup() {
+        //     const users = localStorage.getItem('listusers')
+
+        //     const listusers = JSON.parse(users);
+
+        //     var html = '';
+
+        //     var account = document.getElementById('account-infor').value;
+        //     var password = document.getElementById('password-infor').value;
+
+        //     for (var i = 0; i < listusers.length; i++) {
+        //         if (listusers[i].account == account && listusers[i].password == password) {
+        //             html +=
+        //                 `<li><img src="https://xdnamthienphat.vn/wp-content/uploads/2020/10/avatar-1577909_640-300x300-1.png" alt=""></li>`
+        //             html += `<li><a href="#"><i class="fab fa-shopify"></i><span>CART</span></a></li>`
+        //         }
+        //         break;
+        //         return html;
+        //     }
+        //     console.log(html);
+        //     document.getElementById('test').innerHTML = html;
+        // }
+
+    </script>
 </body>
+
 </html>

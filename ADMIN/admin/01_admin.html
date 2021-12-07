@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./02_admin.css">
+    <title>Admin</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-bicycle" aria-hidden="true"></i></span>
+                        <span class="title"><h2>Biker</h2></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-tachometer" aria-hidden="true"></i></i></span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="input-product" onclick="inputProduct();">
+                        <span class="icon"><i class="fa fa-keyboard-o" aria-hidden="true"></i></span>
+                        <span class="title">Input Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="product" onclick="listProduct();">
+                        <span class="icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span>
+                        <span class="title">List Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
+                        <span class="title">Bill</span>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="#">
+                        <span class="icon"><i class="fa fa-address-card" aria-hidden="true"></i></span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="#" onclick="listUser();">
+                        <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <span class="title">List Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:5500/index.html">
+                        <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle" onclick="toggleMenu();"></div>
+            <div class="search">
+                <label for="">
+                    <input type="text" placeholder="search here">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </label>
+            </div>
+            <div class="user">
+                <img src="./imagine_admin.img/3317.jpg" alt="">
+            </div>
+        </div>
+        <div id="content-admin">
+            <!-- <div class="title-admin">
+                Input product's detail information
+            </div>
+                <form action="" id="form-products">
+                    <ul>
+                        <li>
+                            <div class="imagine">Imagine</div>
+                            <input type="text" id="imagine">
+                        </li>
+                        <li>
+                            <div class="name-product">Name Product</div>
+                            <input type="text" id="nameproduct">
+                        </li>
+                        <li>
+                            <div class="price">Price</div>
+                            <input type="text" id="price">
+                        </li>
+                        <li>
+                            <div class="percent">Percent</div>
+                            <input type="text" id="percent">
+                        </li>
+                        <li>
+                            <div class="total-price">Total Price</div>
+                            <input type="text" id="total-price" style="background-color: rgb(241, 232, 232); color: orange; font-weight: 600;" disabled>
+                        </li>
+                        <div id="menu">
+                            <div id="btn_register" onclick="addProduct()">Add products</div>
+                        </div>
+                    </ul>
+                </form>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let toggle = document.querySelector('.toggle');
+            let navigation = document.querySelector('.navigation');
+            let main = document.querySelector('.main');
+            toggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+        }
+
+    </script>
+    <script src="./02_object.js"></script>
+    <script src="./03_admin.js"></script>
+    <script src="./ProductsFinal/01_listproducts_final.js"></script>
+</body>
+</html>

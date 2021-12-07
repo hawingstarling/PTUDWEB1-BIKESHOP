@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Product List</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #flex-box {
+      display: flex;
+    }
+
+    .add-product {
+      width: 40%;
+      text-align: center;
+      padding: 0 50px;
+    }
+
+    .add-product label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .add-product input {
+      margin-bottom: 10px;
+      width: 100%;
+      height: 30px;
+      outline: none;
+      padding-left: 7px;
+    }
+
+    .add-product h2 {
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    #show-product {
+      padding: 0 50px;
+      width: 60%;
+      text-align: center;
+    }
+
+    #show-product h2 {
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 5px;
+      padding-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    #btn-click {
+      margin-top: 20px;
+      width: 100%;
+      height: 30px;
+      border: 0;
+      cursor: pointer;
+      background-color: #4970a3;
+      color: whitesmoke;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    table,
+    th,
+    td {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th,
+    td {
+      text-align: left;
+      padding: 10px;
+    }
+
+    #total {
+      text-align: center;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div id="flex-box">
+    <div class="add-product">
+      <h2>Insert list products</h2>
+      <label for="">Insert Imagine (Coppy URL Imagine):</label>
+      <input id="imagine" type="text" />
+      <label for="">Name Product :</label>
+      <input id="nameproduct" type="text" />
+      <label for="">Price :</label>
+      <input id="price" type="text" />
+      <label for="">Percent (Enter 0 - 1 percent) (%) :</label>
+      <input id="percent" type="text" />
+      <label for="">Total price :</label>
+      <input id="total" type="text" disabled style="background-color: rgb(241, 232, 232); border: rgb(241, 232, 232);" />
+      <button id="btn-click" onclick="save()">Add</button>
+    </div>
+    <div id="show-product">
+      <table border="1" cellspacing='0' cellpadding="5">
+        <caption style="background-color: #4970a3;color: white;height: 30px;padding-top: 8px;">Management Products</caption>
+        <thead id="grid-listproduct">
+        </thead>
+        <tbody id="bodytable">
+        </tbody>
+    </table>
+    </div>
+  </div>
+  <script src="./01_listproducts_final.js"></script>
+</body>
+
+</html>

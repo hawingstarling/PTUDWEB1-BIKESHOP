@@ -17,14 +17,24 @@
                 <ul class="narbar-menu--items_row">
                     <li><a href="#">HOME</a></li>
                     <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#chooseus-content">PRODUCT</a></li>
+                    <li>
+                        <a href="#">PRODUCT</a>
+                        <ul class="subnav">
+                            <li><a href=""></a>Road Bike</li>
+                            <li><a href=""></a>Mountain Bike</li>
+                            <li><a href=""></a>Touring Bike</li>
+                            <li><a href=""></a>Hybrid Bike</li>
+                            <li><a href=""></a>Fixed Gear Bike</li>
+                            <li><a href=""></a>BMX Bike</li>
+                            <li><a href=""></a>Folding Bike</li>
+                        </ul>
+                    </li>
                     <li><a href="#footer-content">NEWS</a></li>
                     <li><a href="#">CONTACT</a></li>
                 </ul>
-                <ul class="narbar-menu--items_row narbar-menu--items_row-style">
-                    <li><a href="#"><i class="fas fa-user"></i><span>SIGN IN</span></a></li>
-                    <li><a href="#"><i class="fab fa-shopify"></i><span>CART</span></a></li>
-                    </a></i></li>
+                <ul id="test" class="narbar-menu--items_row narbar-menu--items_row-style">
+                    <li><a href="http://127.0.0.1:5500/01_register.html"><i class="fas fa-user"></i><span>SIGN IN</span></a></li>
+                    <li><a href="#"><i class="fab fa-shopify"></i><span>CART</span><span id="cart-span">0</span></a></li>
                 </ul>
             </div>
             <div class="content-header">
@@ -57,20 +67,31 @@
             <h2>RECENT<span>BIKE</span></h2>
             <p>Choose the right one for your needs.</p>
         </div>
-        <div class="product-recents--bike">
+        <!-- <div class="filer-product">
+            <ul class="tab">
+                <li class="tab-item">Phổ biến</li>
+                <li class="tab-item">Mới nhất</li>
+                <li class="tab-item">Bán chạy</li>
+            </ul>
+        </div> -->
+        <div id="product-recents--bike">
+            <!-- Một sản phẩm -->
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/54f99b25be232f66cb2e7141dea30891.jpg_800x800Q100.jpg" alt="bike1" class="recents-img">
                 <div id="product-recents--bike_inform">
                     <p>GALAXY T5</p>
                     <div id="product-recents--bike_inform__price"><del>$6,520</del><br>$5,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
+            <!-- Một sản phẩm -->
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/xe-đạp-california-modeltime.jpg" alt="bike1" class="recents-img">
                 <div id="product-recents--bike_inform">
                     <p class="sibar-one">CALIFORNIA MODELTIME</p>
                     <div class="sibar-two" id="product-recents--bike_inform__price"><del>$3,500</del><br>$2,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/5938e68c5f3da_1496901260.jpg" alt="bike1" class="recents-img">
@@ -78,6 +99,7 @@
                     <p>TWITTER TW3900XC</p>
                     <div id="product-recents--bike_inform__price"><del>$4,520</del><br>$3,870</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/xe-dap-the-thao-ucc-3-2020.jpg" alt="bike1" class="recents-img">
@@ -85,6 +107,7 @@
                     <p>UCC BLADE</p>
                     <div id="product-recents--bike_inform__price"><del>$6,520</del><br>$5,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/2021-CATE-1-Trắng.jpg" alt="bike1" class="recents-img">
@@ -92,6 +115,7 @@
                     <p>CATE 1 2022</p>
                     <div id="product-recents--bike_inform__price"><del>$6,520</del><br>$5,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/XE-DAP-GIANT-XTC-800-2020-1.jpg" alt="bike1" class="recents-img">
@@ -99,6 +123,7 @@
                     <p>GIANT XCT800 2020</p>
                     <div id="product-recents--bike_inform__price"><del>$6,520</del><br>$5,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/unnamed.jpg" alt="bike1" class="recents-img">
@@ -106,6 +131,7 @@
                     <p>FUJISAN R300</p>
                     <div id="product-recents--bike_inform__price"><del>$6,520</del><br>$5,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/img-4597.jpg" alt="bike1" class="recents-img">
@@ -113,7 +139,15 @@
                     <p>FORNIX FT24</p>
                     <div id="product-recents--bike_inform__price"><del>$6,520</del><br>$5,850</div>
                 </div>
+                <a href="#" class="add-cart cart1">Add to cart</a>
             </div>   
+        </div>
+        <div class="pagination">
+            <button class="btn-previous"><</button>
+            <div class="number-page" id="number-page">
+               <!-- JS button pagination here . . . -->
+            </div>
+            <button class="btn-next">></button>
         </div>
     </div>
     <div id="chooseus-content">
@@ -164,5 +198,22 @@
             </div>
         </div>
     </footer>
+    <!-- <script>
+        // * Bước 1. Lấy danh sách sản phẩm từ dưới localStorage lên
+        var jsonlistproducts = localStorage.getItem('listproducts');
+        var listproducts = JSON.parse(jsonlistproducts);
+        console.log(listproducts);
+    
+        // * Bước 2. Chuyển danh sách đối tượng sản phẩm sang HTML
+        var HTML = changeListProducts(listproducts);
+    
+        // * Bước 3. Gắn đoạn HTML đó vào show-products
+        var nodeProducts = document.getElementById('product-recents--bike');
+        nodeProducts.innerHTML = HTML;
+      </script>
+      <script src="./ProductList/02_object.js"></script>
+      <script src="./ProductList/03_list_products.js"></script> -->
+      <script src="./Pagination/01_pagination.js"></script>
+      <script src="./CART/03_cart.js"></script>
 </body>
 </html>
