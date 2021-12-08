@@ -285,7 +285,7 @@
 
             localStorage.setItem('listusers', JSON.stringify(listusers));
             for (var i = 0; i < listusers.length; i++) {
-                if (listusers[i].account == account && listusers[i].password == password) {
+                if ((listusers[i].account == account && listusers[i].password == password) && ((listusers[i].account != 'admin' && listusers[i].password != 'admin'))) {
                     window.location.href = "http://127.0.0.1:5500/index.html";
                     break;
                 } else if (listusers[i].account == 'admin' && listusers[i].password == 'admin') {

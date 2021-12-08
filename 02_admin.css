@@ -248,3 +248,13 @@ li {
 #table-admin {
     margin: 0 auto;
 }
+
+.listusers-delete {
+    padding: 5px 25px;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    border: 0;
+}

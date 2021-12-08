@@ -145,9 +145,20 @@ function listUser() {
             <td>${listusers.account}</td>
             <td>${listusers.password}</td>
             <td>
-                <a href='#'>Edit</a> | <a href='#'>Delete</a>
+                <button class="listusers-delete"  href='#' onclick="deleteAccount(${index - 1})">Delete</button>
             </td>
         </tr>`;
     });
     document.getElementById('grid-listproduct').innerHTML = tableContent;
+}
+
+function deleteAccount(index) {
+    var listusers = JSON.parse(localStorage.getItem('listusers'));
+    var option = confirm("Bạn có chắc chắn muốn xóa tài khoản này?")
+    if(!option) {
+        return
+    }
+    listusers.splice(index, 1);
+    localStorage.setItem('listusers',JSON.stringify(listusers));
+    listUser();
 }

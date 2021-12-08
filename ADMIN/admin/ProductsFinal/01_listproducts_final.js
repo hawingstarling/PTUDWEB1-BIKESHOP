@@ -66,11 +66,22 @@ function renderListProducts() {
             <td>${listproduct.price}</td>
             <td>${listproduct.percent}</td>
             <td>
-                <a href='#'>Edit</a> | <a href='#'>Delete</a>
+                <a href='#'>Edit</a> | <a href='#' onclick="deleteProduct(${index - 1})">Delete</a>
             </td>
         </tr>`;
     });
     document.getElementById('grid-listproduct').innerHTML = tableContent;
+}
+
+function deleteProduct(index) {
+    var listproducts = JSON.parse(localStorage.getItem('listproducts'));
+    var option = confirm("Bạn chắc chắn có muốn xóa sản phẩm này không?")
+    if(!option) {
+        return
+    }
+    listproducts.splice(index, 1);
+    localStorage.setItem('listproducts', JSON.stringify(listproducts));
+    renderListProducts();
 }
 
 function calculation() {

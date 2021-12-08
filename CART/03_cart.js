@@ -116,6 +116,43 @@ function displayCart() {
 
 }
 
+function listCart() {
+    let listcart = localStorage.getItem('productInCart') ? JSON.parse(localStorage.getItem('productInCart')) : [];
+
+    if (listcart.length == 0) {
+        document.getElementById('content-admin').style.display = 'none';
+        return false;
+    }
+    document.getElementById('content-admin').style.display = 'block';
+
+    let tableContent = `<tr>
+        <td>No</td>
+        <td>Imagine</td>
+        <td>Name Products</td>
+        <td>Cart</td>
+        <td>Price</td>
+        <td>Percent</td>
+        <td>Total</td>
+    </tr>`;
+    
+    listcart.forEach((listcart, index) => {
+        index++;
+
+        tableContent += `<tr>
+            <td>${index}</td>
+            <td>${listcart.imagine}</td>
+            <td>${listcart.nameproduct}</td>
+            <td>${listcart.inCart}</td>
+            <td>${listcart.price}</td>
+            <td>${listcart.percent}</td>
+            <td>
+                <a href='#'>Edit</a> | <a href='#' onclick="deleteProduct(${index - 1})">Delete</a>
+            </td>
+        </tr>`;
+    });
+    document.getElementById('content-admin').innerHTML = tableContent;
+}
+
 
 displayCart();
 
