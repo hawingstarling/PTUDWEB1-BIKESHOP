@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Pontano+Sans');
+
+body {
+    font-family: 'Pontano Sans', sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #999;
+    color: #888;
+    text-rendering: optimizeLegibility;
+  }
+.modal {
+    background-color: #cc6119;
+}
+.menu-detail {
+    display: flex;
+    background-color: #fff;
+    max-width: 900px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+#this-is-menu {
+    display: block;
+    background-color: #fff;
+    max-width: 900px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.back-to-bike {
+    padding: 10px 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.back-to-bike:hover , .back-to-bike:active{
+    color: #cc6119;
+    letter-spacing: 1px;
+}
+
+.back-to-bike span {
+    margin-left: 10px
+}
+
+.content-detail_bike {
+    font-family: 'Pontano Sans', sans-serif;
+    width: 50%;
+    padding-right: 100px;
+    padding-left: 50px;
+}
+
+.content-bike {
+    margin-top: 50px;
+}
+
+.detail-bike {
+    margin-top: 10px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 20px;
+}
+
+.detail-bike h4 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+.detail-bike p {
+    font-size: 25px;
+}
+
+.img-detail_bike {
+    width: 50%;
+    margin-top: 100px;
+}
+
+.back-to-bike {
+    display: inline-block;
+}
+
+.img-detail_bike img {
+    width: 100%;
+    text-align: center;
+}
+
+
+.add-to-cart {
+    position: relative;
+    display: inline-block;
+    border-radius: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    letter-spacing: 0.0625rem;
+    border: 1px solid #cc6119;
+    padding: 15px 30px;
+    background-color: #cc6119;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.add-to-cart:hover, .add-to-cart:active {
+    color: #cc6119;
+    background-color: #fff;
+}

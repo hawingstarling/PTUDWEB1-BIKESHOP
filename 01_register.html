@@ -37,7 +37,7 @@
             background-color: #fff;
             box-shadow: 2px 2px px 2px #cc6119;
             width: 400px;
-            height: 550px;
+            height: 570px;
             border-radius: 5px;
             padding: 30px 55px;
             text-align: center;
@@ -190,7 +190,8 @@
         }
 
         #isEmpty1,
-        #isEmpty2 {
+        #isEmpty2,
+        #isEmpty3 {
             color: red;
         }
 
@@ -207,7 +208,7 @@
             <h2 id="content-login">Sign up</h2>
             <div class="content-register">
                 <div class="inputWithIcon">
-                    <input id="account-infor" type="text" placeholder="Email or Phone" maxlength="30">
+                    <input id="account-infor" type="text" placeholder="Account" maxlength="30">
                     <i class="fas fa-user-alt"></i>
                     <p class="isEmpty" id="isEmpty1"></p>
                 </div>
@@ -215,6 +216,11 @@
                     <input id="password-infor" type="password" placeholder="Password" maxlength="20">
                     <i class="fas fa-lock"></i>
                     <p class="isEmpty" id="isEmpty2"></p>
+                </div>
+                <div class="inputWithIcon">
+                    <input id="password-infor-re" type="password" placeholder="Enter the password" maxlength="20">
+                    <i class="fas fa-lock"></i>
+                    <p class="isEmpty" id="isEmpty3"></p>
                 </div>
                 <a href="#" id="forgot-password">Forgot Password?</a>
                 <a id="login" href="#" onclick="addAccount();">LOGIN</a>
@@ -247,78 +253,60 @@
         //         return 0;
         //     }
         // }
-
-        function Signup() {
-            var signup = document.getElementById('sign-up-changed');
-            var login = document.getElementById('content-login');
-            var forget = document.getElementById('forgot-password');
-            signup.innerHTML = '';
-            login.innerHTML = 'Sign in';
-            forget.innerHTML = '';
-        }
     </script>
     <script>
-        var listUser = localStorage.getItem(listUser);
-        if (listUser == null) {
-            listUser = new Array();
-        }
-
         function addAccount() {
+            let listusers = localStorage.getItem('listusers') ? JSON.parse(localStorage.getItem('listusers')) : [];
 
             var account = document.getElementById('account-infor').value;
+            var password = document.getElementById('password-infor').value;
+            var password_re = document.getElementById('password-infor-re').value;
             if (account == '') {
                 document.getElementById('isEmpty1').innerHTML = 'Tên đăng nhập đang trống';
+                return false;
+            } else if (password == '') {
+                document.getElementById('isEmpty2').innerHTML = 'Mật khẩu đang trống';
+                document.getElementById('isEmpty1').innerHTML = '';
+                return false;
+            } else if (password.length < 6 ) {
+                document.getElementById('isEmpty2').innerHTML = 'Mật khẩu quá ngắn';
+                return false;
+            } else if (password_re == '') {
+                document.getElementById('isEmpty3').innerHTML = 'Mật khẩu xác thực đang rỗng';
+                document.getElementById('isEmpty2').innerHTML = '';
+                return false;
+            } else if (password != password_re) {
+                document.getElementById('isEmpty3').innerHTML = 'Xác thực mật khẩu sai';
+                return false;
             }
 
-            var password = document.getElementById('password-infor').value;
-            if (password == '') {
-                document.getElementById('isEmpty2').innerHTML = 'Mật khẩu đang trống';
+            if (listusers.some((v) => {return v.account === account})) {
+                alert('Duplicate data');
+            } else {
+                listusers.push({
+                    password: password,
+                    account: account,
+                });
+
+                localStorage.setItem('listusers', JSON.stringify(listusers));
+                alert('Register pass');
             }
 
             // * Tạo đối tượng tài khoản dành cho user
-            let listusers = localStorage.getItem('listusers') ? JSON.parse(localStorage.getItem('listusers')) : [];
 
-            listusers.push({
-                password: password,
-                account: account,
-            });
 
-            localStorage.setItem('listusers', JSON.stringify(listusers));
-            for (var i = 0; i < listusers.length; i++) {
-                if ((listusers[i].account == account && listusers[i].password == password) && ((listusers[i].account != 'admin' && listusers[i].password != 'admin'))) {
-                    window.location.href = "http://127.0.0.1:5500/index.html";
-                    break;
-                } else if (listusers[i].account == 'admin' && listusers[i].password == 'admin') {
-                    window.location.href = "http://127.0.0.1:5500/ADMIN/admin/01_admin.html";
-                    break;
-                }
-            }
+            // for (var i = 0; i < listusers.length; i++) {
+            //     if (listusers[i].account == account && listusers[i].password == password && listusers[i].account !=
+            //         'admin') {
+            //         window.location.href = "./index.html";
+            //         break;
+            //     } else if (listusers[i].account == 'admin' && listusers[i].password == 'admin') {
+            //         window.location.href = "./01_admin.html";
+            //         break;
+            //     }
+            // }
 
         }
-
-        // function isSignup() {
-        //     const users = localStorage.getItem('listusers')
-
-        //     const listusers = JSON.parse(users);
-
-        //     var html = '';
-
-        //     var account = document.getElementById('account-infor').value;
-        //     var password = document.getElementById('password-infor').value;
-
-        //     for (var i = 0; i < listusers.length; i++) {
-        //         if (listusers[i].account == account && listusers[i].password == password) {
-        //             html +=
-        //                 `<li><img src="https://xdnamthienphat.vn/wp-content/uploads/2020/10/avatar-1577909_640-300x300-1.png" alt=""></li>`
-        //             html += `<li><a href="#"><i class="fab fa-shopify"></i><span>CART</span></a></li>`
-        //         }
-        //         break;
-        //         return html;
-        //     }
-        //     console.log(html);
-        //     document.getElementById('test').innerHTML = html;
-        // }
-
     </script>
 </body>
 

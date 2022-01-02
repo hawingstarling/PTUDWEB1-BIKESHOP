@@ -96,6 +96,12 @@ html {
     cursor: pointer;
 }
 
+.product-carts {
+    display: flex;
+    width: 100%;
+}
+
+
 .products-header {
     width: 100%;
     max-width: 650px;

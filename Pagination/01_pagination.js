@@ -1,121 +1,85 @@
 
 
+// let product = localStorage.getItem('listproductss')
 
-// const products = localStorage.getItem('listproducts');
+// let listproducts = JSON.parse(product);
 
-// var listproducts = JSON.parse(listproducts);
+// let perPage = 8;
+// let currentPage = 1;
+// let start = 0;
+// let end = perPage;
 
+// const totalPage = Math.ceil(listproducts.length / perPage);
 
-// const listproducts = [
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-//     {imagine: "https://media-cdn.laodong.vn/storage/newsportal/2019/4/2/666476/Mazda-Cx5.jpg?w=414&h=276&crop=auto&scale=both", nameproduct: "Oto", percent: 2500, price: 2900},
-// ];
+// const btnNext = document.querySelector('.btn-next');
+// const btnPrev = document.querySelector('.btn-previous');
 
-let product = localStorage.getItem('listproducts')
+// function getCurrentPage(currentPage) {
+//     start = (currentPage - 1) * perPage;
+//     end = currentPage * perPage;
+// }
 
-let listproducts = JSON.parse(product);
+// function renderProduct() {
+//     html = '';
+//     const content = listproducts.map((item, index) => {
+//         if (index >= start && index < end) {
+//             html += '<div class="products-bike" data-item="' + item.types + '">';
+//             html +=     '<img src="' + item.imagine + '" alt="" class="img-bike">';
+//             html +=     '<div class="detail_bike">';
+//             html +=         '<h4 class="name_bike">' + item.nameproduct +'</h4>';
+//             html +=         '<p class="price_bike">$' + item.price + '</p>';
+//             html +=         '<p>' + item.detail + '</p>';
+//             html +=         '<a href="#this-is-menu" onclick="document.getElementById(' + '\'modal-block_menu\'' + ').style.display=' + '\'block\'' + '">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>';
+//             html +=     '</div>'
+//             html += '</div>'
+//             return html;
+//         }
+//     });
 
-let perPage = 8;
-let currentPage = 1;
-let start = 0;
-let end = perPage;
+//     document.getElementById('product-recent_bike_group').innerHTML = html;
+// }
 
-const totalPage = Math.ceil(listproducts.length / perPage);
+// renderProduct();
 
-const btnNext = document.querySelector('.btn-next');
-const btnPrev = document.querySelector('.btn-previous');
+// function renderListPage() {
+//     let html = '';
+//     html += `<button class="active">${1}</button>`;
+//     for (let i = 2; i <= totalPage; i++) {
+//         html += `<button>${i}</button>`;
+//     }
+//     document.getElementById('number-page').innerHTML = html;
+// }
+// renderListPage();
 
-function getCurrentPage(currentPage) {
-    start = (currentPage - 1) * perPage;
-    end = currentPage * perPage;
-}
+// function changePage() {
+//     const currentPages = document.querySelectorAll('#number-page button');
+//     for (let i = 0; i < currentPages.length; i++) {
+//         currentPages[i].addEventListener('click', () => {
+//             const value = i + 1;
+//             currentPage = value;
+//             getCurrentPage(currentPage);
+//             renderProduct();
+//         });
+//     }
+// }
+// changePage();
 
-function renderProduct() {
-    html = '';
-    const content = listproducts.map((item, index) => {
-        if (index >= start && index < end) {
-            html += '<div class="product-recents--bike_sibarone">';
-            html +=     '<img src="' + item.imagine +'" alt="bike1" class="recents-img">';
-            html +=     '<div id="product-recents--bike_inform">';
-            html +=         '<p>' + item.nameproduct + '</p>';
-            html +=         '<div id="product-recents--bike_inform__price"><del>$' + item.percent + '</del><br>$' + item.price + '</div>';
-            html +=     '</div>';
-            html +=     '<a href="#" class="add-cart cart1">Add to cart</a>'
-            html += '</div>';
-            return html;
-        }
-    });
+// btnNext.addEventListener('click', () =>{
+//     currentPage++;
+//     if (currentPage > totalPage) {
+//         currentPage = totalPage;
+//     }
 
-    document.getElementById('product-recents--bike').innerHTML = html;
-}
+//     getCurrentPage(currentPage)
+//     renderProduct();
+// });
 
-renderProduct();
-
-function renderListPage() {
-    let html = '';
-    html += `<button class="active">${1}</button>`;
-    for (let i = 2; i <= totalPage; i++) {
-        html += `<button>${i}</button>`;
-    }
-    document.getElementById('number-page').innerHTML = html;
-}
-renderListPage();
-
-function changePage() {
-    const currentPages = document.querySelectorAll('#number-page button');
-    for (let i = 0; i < currentPages.length; i++) {
-        currentPages[i].addEventListener('click', () => {
-            const value = i + 1;
-            currentPage = value;
-            getCurrentPage(currentPage);
-            renderProduct();
-        });
-    }
-}
-changePage();
-
-btnNext.addEventListener('click', () =>{
-    currentPage++;
-    if (currentPage > totalPage) {
-        currentPage = totalPage;
-    }
-
-    getCurrentPage(currentPage)
-    renderProduct();
-});
-
-btnPrev.addEventListener('click', () =>{
-    currentPage--;
-    if (currentPage <= 1) {
-        currentPage = 1;
-    } 
-    getCurrentPage(currentPage)
-    renderProduct();
-});
+// btnPrev.addEventListener('click', () =>{
+//     currentPage--;
+//     if (currentPage <= 1) {
+//         currentPage = 1;
+//     } 
+//     getCurrentPage(currentPage)
+//     renderProduct();
+// });
 

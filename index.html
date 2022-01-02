@@ -10,7 +10,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <title>Bike-Shop</title>
 </head>
-<body>
+<body onload="checkAccount()">
+    <div id="container-register" class="modal">
+        <div id="table-register">
+			<span class="close" onclick="document.getElementById('container-register').style.display='none'">&times;</span>
+            <h2 id="content-login">Sign up</h2>
+            <div class="content-register">
+                <div class="inputWithIcon">
+                    <input id="account-infor" type="text" placeholder="Account" maxlength="30">
+                    <i class="fas fa-user-alt"></i>
+                    <p class="isEmpty" id="isEmpty1"></p>
+                </div>
+                <div class="inputWithIcon">
+                    <input id="password-infor" type="password" placeholder="Password" maxlength="20">
+                    <i class="fas fa-lock"></i>
+                    <p class="isEmpty" id="isEmpty2"></p>
+                </div>
+                <a href="#" id="forgot-password">Forgot Password?</a>
+                <a id="login" href="#" onclick="Login();">LOGIN</a>
+                <div class="registor-or-list">
+                    <div id="register-or">
+                        <span>Or login with</span>
+                    </div>
+                </div>
+                <div id="social-register">
+                    <div class="facebook-register">
+                        <a href="#"><i class="fab fa-facebook-f"> Facebook</i></a>
+
+                    </div>
+                    <div class="github-register">
+                        <a href="#"><i class="fab fa-github-square"> Github</i></a>
+                    </div>
+                </div>
+                <div id="sign-up-changed">
+                    <p class="log-in-account">Don't have account?<a onclick="Signup();" href="#"> Signup Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <header>
         <nav>
             <div id="navbar-menu">
@@ -30,16 +67,57 @@
                         </ul>
                     </li>
                     <li><a href="#footer-content">NEWS</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="./lienhe.html">CONTACT</a></li>
                 </ul>
-                <ul id="test" class="narbar-menu--items_row narbar-menu--items_row-style">
-                    <li><a href="http://127.0.0.1:5500/01_register.html"><i class="fas fa-user"></i><span>SIGN IN</span></a></li>
-                    <li><a href="http://127.0.0.1:5500/CART/01_cart.html"><i class="fab fa-shopify"></i><span>CART</span><span id="cart-span"></span></a></li>
+               
+                <ul id="signin-successfull" class="narbar-menu--items_row narbar-menu--items_row-style">
+                    <li><a href="#" onclick="document.getElementById('container-register').style.display='block'"><i class="fas fa-user"></i><span id="name_account">SIGN IN</span></a></li>
+                    <li><a href="01_register.html"><i class="fas fa-user-plus"></i><span>SIGN UP</span></a></li>
+                </ul>
+                <ul class="narbar-menu--items_row">
+                    <li><a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i><sup id="cart-count-info">0</sup></a>
+                        <div class="cart-container">
+                            <div class="cart-containers">
+                                <div class="check-product">
+                                    <h3>Hiện không có sản phẩm trong giỏ hàng</h3>
+                                </div>
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
+                                <!-- <div class="product"><ion-icon name="close-circle"></ion-icon><img src="./resources/img/pexels-photo-1061142.jpg" />
+                                    <span class="sm-hide">HawkStar</span>
+                                </div>
+                                <div class="price sm-hide">5,00</div>
+                                <div class="quantity">
+                                    <button class="button-minus"><i class="fas fa-chevron-up"></i></button>
+                                        <span class="countOfProduct">1</span>
+                                    <button class="button-plus"><i class="fas fa-chevron-down"></i></button>   
+                                </div>
+                                <div class="total">12,00</div>
+                                <div class="btn-del">
+                                    <button type="button" class="cart-item-del-btn">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div> -->
+
+                                <div class="cart-total">
+                                    <h3>Total: </h3>
+                                    <span id="cart-total-value">$ 0.00</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="log_out">
+                            <!-- js in here -->
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="content-header">
                 <h1>Search your find BIKE in Bike.Shop</h1>
-                <input type="text" placeholder="Choose your want bike ..." >
+                <input id="search" type="text" placeholder="Choose your want bike ..." >
                 <a href="#"><i class="fas fa-search"></i></a>
             </div>
             <div id="description-content">
@@ -62,20 +140,145 @@
             </div>
         </nav>
     </header>
+    <div id="modal-block_menu">
+        <div id="this-is-menu">
+            <!-- <div class="back-to-bike">
+                <div class="close" onclick="document.getElementById('modal-block_menu').style.display='none'"&times;>
+                    <i class="fas fa-chevron-left"></i><span>BACK TO BIKE</span>
+                </div>
+            </div>
+            <div class="menu-detail">
+                <div class="img-detail_bike">
+                    <img src="https://www.bicyclebd.com/images/products/Duranta%20General%20Bicycle%20Classic.jpg" alt="">
+                </div>
+                <div class="content-detail_bike">
+                    <div class="detail-bike">
+                        <h4 class="name-bike_detail">Matt saling</h4>
+                        <p class="pay-dollar">$19.99</p>
+                    </div>
+                    <div class="content-bike">
+                        <div class="ability">
+                            <i class="fas fa-road"><span></span></i>
+                            <i class="fas fa-calendar-week"><span></span></i>
+                            <i class="fas fa-globe"><span></span></i>
+                        </div>    
+                        <br>
+                        <p class="content-main_bike">By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. 
+                           Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p>
+                    </div>
+                    <div class="btn-addtocart">
+                        <button class="add-to-cart">Add To Cart</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
     <div id="flex-container">
         <div class="product-recents--content">
             <h2>RECENT<span>BIKE</span></h2>
             <p>Choose the right one for your needs.</p>
         </div>
-        <!-- <div class="filer-product">
-            <ul class="tab">
-                <li class="tab-item">Phổ biến</li>
-                <li class="tab-item">Mới nhất</li>
-                <li class="tab-item">Bán chạy</li>
-            </ul>
-        </div> -->
-        <div id="product-recents--bike">
-            <!-- Một sản phẩm -->
+        <div id="filter_button">
+            <a class="btn btn-primary active" data-filter="all">All</a>
+            <a class="btn btn-primary" data-filter="recent">Recent</a>
+            <a class="btn btn-primary" data-filter="selling">Selling</a>
+            <a class="btn btn-primary" data-filter="historic">Historic</a>
+            <a class="btn btn-primary" data-filter="beautiful">Beautiful</a>
+        </div>
+        <div id="product-recent_bike_group">
+
+            <!-- <div class="products-bike" data-item="recent">
+                <img src="./resources/img/alonso-talbert-001.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Alonso Talbert</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="recent">
+                <img src="./resources/img/andreas-haimerl-002.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Andreas Haimerl</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="selling">
+                <img src="./resources/img/daniel-salcius-003.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Daniel Salcius</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="selling">
+                <img src="./resources/img/david-jones-004.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">David Jones</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="historic">
+                <img src="./resources/img/howard-bouchevereau-005.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Howard Bouchevereau</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="beautiful">
+                <img src="./resources/img/marcos-quinteiro-006.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Marcos Quinteiro</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="beautiful">
+                <img src="./resources/img/mikkel-bech-008.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Mikkel Bech</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div>
+
+            <div class="products-bike" data-item="historic">
+                <img src="./resources/img/olesia-bahrii-009.jpg" alt="" class="img-bike">
+                <div class="detail_bike">
+                    <h4 class="name_bike">Olesia Bahrii</h4>
+                    <p class="price_bike">$10.99</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#this-is-menu" onclick="document.getElementById('modal-block_menu').style.display='block'">MORE DETAIL <span><i class="fas fa-long-arrow-alt-right"></i></span></a>
+                </div>
+                <a href="#" class="add-cart">Add to cart</a>
+            </div> -->
+
+            <h1 id="showtext"></h1>
+
+        </div>
+        <!-- <div id="product-recents--bike">
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/54f99b25be232f66cb2e7141dea30891.jpg_800x800Q100.jpg" alt="bike1" class="recents-img">
                 <div id="product-recents--bike_inform">
@@ -84,7 +287,6 @@
                 </div>
                 <a href="#" class="add-cart cart1">Add to cart</a>
             </div>
-            <!-- Một sản phẩm -->
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/xe-đạp-california-modeltime.jpg" alt="bike1" class="recents-img">
                 <div id="product-recents--bike_inform">
@@ -141,7 +343,7 @@
                 </div>
                 <a href="#" class="add-cart cart1">Add to cart</a>
             </div>   
-        </div>
+        </div> -->
         <div class="pagination">
             <button class="btn-previous"><</button>
             <div class="number-page" id="number-page">
@@ -198,22 +400,89 @@
             </div>
         </div>
     </footer>
-    <!-- <script>
-        // * Bước 1. Lấy danh sách sản phẩm từ dưới localStorage lên
-        var jsonlistproducts = localStorage.getItem('listproducts');
-        var listproducts = JSON.parse(jsonlistproducts);
-        console.log(listproducts);
-    
-        // * Bước 2. Chuyển danh sách đối tượng sản phẩm sang HTML
-        var HTML = changeListProducts(listproducts);
-    
-        // * Bước 3. Gắn đoạn HTML đó vào show-products
-        var nodeProducts = document.getElementById('product-recents--bike');
-        nodeProducts.innerHTML = HTML;
-      </script>
-      <script src="./ProductList/02_object.js"></script>
-      <script src="./ProductList/03_list_products.js"></script> -->
       <script src="./Pagination/01_pagination.js"></script>
-      <script src="./CART/03_cart.js"></script>
+      <!-- <script src="./CART/03_cart.js"></script> -->
+      <script src="./ADMIN/admin/ProductsFinal/01_listproducts_final.js"></script>
+    <script>
+
+        // let name=localStorage.getItem('name')?localStorage.getItem('name'):'';
+        // console.log(name);
+        // if(name!='')
+        // {
+        //   alert('Please visit profile');
+        //   window.location.href = "./index.html";
+        // }
+
+        // TEST LIST USER - ADMIN
+
+        // function addAccount() {
+
+        //     var account = document.getElementById('account-infor').value;
+        //     if (account == '') {
+        //         document.getElementById('isEmpty1').innerHTML = 'Tên đăng nhập đang trống';
+        //     }
+
+        //     var password = document.getElementById('password-infor').value;
+        //     if (password == '') {
+        //         document.getElementById('isEmpty2').innerHTML = 'Mật khẩu đang trống';
+        //     }
+
+        //     // * Tạo đối tượng tài khoản dành cho user
+        //     let listusers = localStorage.getItem('listusers') ? JSON.parse(localStorage.getItem('listusers')) : [];
+
+        //     if (listusers.some((v) => {return v.account == account && v.password == password })) {
+        //         alert("Login Pass");
+        //         let current_user = listusers.filter((v) => {return v.account == account && v.password == password})[0];
+        //         // localStorage.setItem('name', current_user.name);
+        //         localStorage.setItem('account', current_user.account);
+        //         window.location.href = "./02_index.html";
+        //     } else if(account == 'admin' && password == 'admin') {
+        //         window.location.href = "./01_admin.html";
+        //     }else {
+        //         alert('Login Fail');
+        //     }
+
+        //     function LogOut() {
+        //         localStorage.removeItem('account');
+        //         window.location.href="./index.html";
+        //     }
+        // }
+
+        let listusers = JSON.parse(localStorage.getItem('listusers'));
+
+        function checkAccount() {
+            let isLogin = !!localStorage.getItem('nameAccount');
+            if (isLogin) {
+                let name = localStorage.getItem('nameAccount');
+                document.getElementById('name_account').innerHTML= name;
+                let log_out_bike = document.getElementById('log_out').innerHTML = '<i class="fas fa-sign-out-alt"><span>LOG OUT</span></i>';
+                let log_out = document.getElementById('log_out');
+                log_out.onclick = function() {
+                    localStorage.removeItem('nameAccount');
+                    let log_out_bike = document.getElementById('log_out').innerHTML = '';
+                    window.location.href="./index.html"
+                }
+            }
+        }
+
+        function Login() {
+            let username = document.getElementById('account-infor').value;
+            let password = document.getElementById('password-infor').value;
+
+            let check = listusers.some(value => username === value.account && password === value.password);
+
+            if (check) {
+                alert('Login pass');
+                localStorage.setItem('nameAccount', username)
+                let name = localStorage.getItem('nameAccount');
+                window.location.href="./index.html";
+            } else {
+                alert('wrong username or password');
+            }
+        }
+    </script>
+
+    <script src="./filter_products.js"></script>
+    <script src="./shopping_cart.js"></script>
 </body>
 </html>

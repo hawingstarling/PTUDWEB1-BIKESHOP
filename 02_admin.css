@@ -245,6 +245,10 @@ li {
     text-align: center;
 }
 
+#btn_register:hover, #btn_register:active {
+    box-shadow: 5px 5px 5px #ddd;
+}
+
 #table-admin {
     margin: 0 auto;
 }
