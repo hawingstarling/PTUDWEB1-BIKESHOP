@@ -48,6 +48,100 @@
             </div>
         </div>
     </div>
+    <div id="order-cart" class="order-cart">
+        <div id="order-cart_history">
+            <h2>Order</h2>
+            <div class="order-cart_history__menu">
+                <div class="order-cart__id">
+                    <span>Order ID</span>
+                </div>
+                <div class="order-cart__date">
+                    <span>Order Date</span>
+                </div>
+                <div class="order-cart__status">
+                    <span>Order status</span>
+                </div>
+                <div class="order-cart__total">
+                    <span>Order total</span>
+                </div>
+            </div>
+            <div class="order-cart_history__products">
+                <div class="order-cart_history_product">
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
+                    <!-- <div class="order-cart_product__id">
+                        <span>3289b0af-823e-4664-900d-af2ba88079e3</span>
+                    </div>
+                    <div class="order-cart_product__date">
+                        <span>1/1/2022 17:18:3</span>
+                    </div>
+                    <div class="order-cart_product__status">
+                        <span>processing</span>
+                    </div>
+                    <div class="order-cart_product__total">
+                        <span>4000</span>
+                    </div> -->
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
+                </div>
+
+            </div>
+            <div class="order-cart_history__backtoshop" onclick="document.getElementById('order-cart').style.display='none'">
+                <span><i class="fas fa-chevron-left"> Back to shop</i></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="order-detail" class="order-detail">
+        <div id="order-cart-detail">
+            <h3>Order detail</h3>
+            <div class="order-detail-title">
+                <div class="order-detail-title__imagine">
+                    <span>Imagine order</span>
+                </div>
+
+                <div class="order-detail-title__nameproduct">
+                    <span>Name order</span>
+                </div>
+
+                <div class="order-detail-title__quantity">
+                    <span>Quantity order</span>
+                </div>
+
+                <div class="order-detail-title__total">
+                    <span>Total order</span>
+                </div>
+            </div>
+            <div class="order-details">
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
+                <!-- <div class="order-detail-menu">
+                    <div class="order-detail__imagine">
+                        <img src="./resources/img/pexels-photo-1061142.jpg" />
+                    </div>
+    
+                    <div class="order-detail-nameproduct">
+                        <span class="order-detail__name">Hungting</span>
+                    </div>
+    
+                    <div class="order-detail__quantity"><span>3</span></div>
+    
+                    <div class="order-detail__total">$ 250,00</div>
+                </div> -->
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
+            </div>
+
+            <div class="order-detai__close" onclick="document.getElementById('order-detail').style.display='none'">
+                <span><i class="fas fa-chevron-left"> Back to shop</i></span>
+            </div>
+            
+        </div>
+    </div>
     <header>
         <nav>
             <div id="navbar-menu">
@@ -77,6 +171,9 @@
                 <ul class="narbar-menu--items_row">
                     <li><a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i><sup id="cart-count-info">0</sup></a>
                         <div class="cart-container">
+                            <div class="cart-order" onclick="document.getElementById('order-cart').style.display='block'">
+                                <button><i class="fas fa-bicycle"> Orders</i></button>
+                            </div>
                             <div class="cart-containers">
                                 <div class="check-product">
                                     <h3>Hiện không có sản phẩm trong giỏ hàng</h3>
@@ -100,11 +197,11 @@
                                     </button>
                                 </div> -->
 
+<!-- +========================================= JS cart item in here =========================================+ -->
                                 <div class="cart-total">
                                     <h3>Total: </h3>
                                     <span id="cart-total-value">$ 0.00</span>
                                 </div>
-
                             </div>
                         </div>
                     </li>
@@ -141,7 +238,10 @@
         </nav>
     </header>
     <div id="modal-block_menu">
-        <div id="this-is-menu">
+        <div id="this-is-menu"><!-- +========================================= JS cart item in here =========================================+ -->
+
+
+
             <!-- <div class="back-to-bike">
                 <div class="close" onclick="document.getElementById('modal-block_menu').style.display='none'"&times;>
                     <i class="fas fa-chevron-left"></i><span>BACK TO BIKE</span>
@@ -171,6 +271,9 @@
                     </div>
                 </div>
             </div> -->
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
         </div>
     </div>
     <div id="flex-container">
@@ -186,6 +289,8 @@
             <a class="btn btn-primary" data-filter="beautiful">Beautiful</a>
         </div>
         <div id="product-recent_bike_group">
+
+<!-- +========================================= JS cart item in here =========================================+ -->
 
             <!-- <div class="products-bike" data-item="recent">
                 <img src="./resources/img/alonso-talbert-001.jpg" alt="" class="img-bike">
@@ -275,9 +380,14 @@
                 <a href="#" class="add-cart">Add to cart</a>
             </div> -->
 
+<!-- +========================================= JS cart item in here =========================================+ -->
+
             <h1 id="showtext"></h1>
 
         </div>
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
         <!-- <div id="product-recents--bike">
             <div class="product-recents--bike_sibarone">
                 <img src="./resources/img/54f99b25be232f66cb2e7141dea30891.jpg_800x800Q100.jpg" alt="bike1" class="recents-img">
@@ -344,6 +454,9 @@
                 <a href="#" class="add-cart cart1">Add to cart</a>
             </div>   
         </div> -->
+
+<!-- +========================================= JS cart item in here =========================================+ -->
+
         <div class="pagination">
             <button class="btn-previous"><</button>
             <div class="number-page" id="number-page">
@@ -404,49 +517,6 @@
       <!-- <script src="./CART/03_cart.js"></script> -->
       <script src="./ADMIN/admin/ProductsFinal/01_listproducts_final.js"></script>
     <script>
-
-        // let name=localStorage.getItem('name')?localStorage.getItem('name'):'';
-        // console.log(name);
-        // if(name!='')
-        // {
-        //   alert('Please visit profile');
-        //   window.location.href = "./index.html";
-        // }
-
-        // TEST LIST USER - ADMIN
-
-        // function addAccount() {
-
-        //     var account = document.getElementById('account-infor').value;
-        //     if (account == '') {
-        //         document.getElementById('isEmpty1').innerHTML = 'Tên đăng nhập đang trống';
-        //     }
-
-        //     var password = document.getElementById('password-infor').value;
-        //     if (password == '') {
-        //         document.getElementById('isEmpty2').innerHTML = 'Mật khẩu đang trống';
-        //     }
-
-        //     // * Tạo đối tượng tài khoản dành cho user
-        //     let listusers = localStorage.getItem('listusers') ? JSON.parse(localStorage.getItem('listusers')) : [];
-
-        //     if (listusers.some((v) => {return v.account == account && v.password == password })) {
-        //         alert("Login Pass");
-        //         let current_user = listusers.filter((v) => {return v.account == account && v.password == password})[0];
-        //         // localStorage.setItem('name', current_user.name);
-        //         localStorage.setItem('account', current_user.account);
-        //         window.location.href = "./02_index.html";
-        //     } else if(account == 'admin' && password == 'admin') {
-        //         window.location.href = "./01_admin.html";
-        //     }else {
-        //         alert('Login Fail');
-        //     }
-
-        //     function LogOut() {
-        //         localStorage.removeItem('account');
-        //         window.location.href="./index.html";
-        //     }
-        // }
 
         let listusers = JSON.parse(localStorage.getItem('listusers'));
 

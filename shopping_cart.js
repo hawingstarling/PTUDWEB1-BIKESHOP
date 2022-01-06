@@ -36,6 +36,8 @@ for (let i = 0; i < carts.length; i++) { //? listen từng sự kiện khi click
     });
 }
 
+// * ======================== ONLOAD CART ======================== * //
+
 function onLoadCartNumbers() {
     let productNumbers = localStorage.getItem('cartNumbers');
     if (productNumbers) {
@@ -62,6 +64,8 @@ function cartNumbers(listproduct, action) { //? truyền tham số là object v�
     }
     setItems(listproduct);
 }
+
+// * ======================== SETITEM CART ======================== * //
 
 
 function setItems(product) { // truyền object sản phẩm đó
@@ -101,6 +105,7 @@ function totalCost(product, action) {
     }
 }
 
+// * ======================== DISPLAY CART ======================== * //
 
 function displayCart() {
     
@@ -113,7 +118,7 @@ function displayCart() {
         cartContainers.innerHTML = '';
         Object.values(cartItems).map(item => {
             cartContainers.innerHTML += `
-                <div class="product"><ion-icon name="close-circle"></ion-icon><img src="${item.imagine}" />
+                <div class="product"><img src="${item.imagine}" />
                     <span class="sm-hide">${item.nameproduct}</span>
                 </div>
                 <div class="price sm-hide"><sup>$</sup> ${item.price},00</div>
@@ -139,7 +144,7 @@ function displayCart() {
 
         cartContainers.innerHTML += `
                 <div class="cart-checkout">
-                    <button><i class="fas fa-check">Check out</i></button>
+                    <button onclick="checkOut();"><i class="fas fa-check">Check out</i></button>
                 </div> 
         `;
         
@@ -216,6 +221,115 @@ function deleteButtons() {
         })
     }
 }
+
+// * ======================== ORDER CART ======================== * //
+
+function uuid() {
+    var temp_url = URL.createObjectURL(new Blob());
+    var uuid = temp_url.toString();
+    URL.revokeObjectURL(temp_url);  
+    return uuid.substr(uuid.lastIndexOf('/') + 1);
+}
+
+function order() {
+    let orders = localStorage.getItem('orders') ? JSON.parse(localStorage.getItem('orders')) : [];
+
+    let cartItems = localStorage.getItem('productInCart');
+    cartItems = JSON.parse(cartItems);
+
+    let order_cart_history = document.querySelector('.order-cart_history__products');
+       
+    Object.values(orders).map((order) => {
+        if (order.user == localStorage.getItem('nameAccount')) {
+            if (order_cart_history) {
+                order_cart_history.innerHTML = '';
+                Object.values(orders).map((item) => {
+                    order_cart_history.innerHTML += `
+                    <div class="order-cart_history_product">
+                        <div class="order-cart_product__id">
+                            <a onclick="orderDetail('${item.id}'); document.getElementById('order-detail').style.display='block'"><span>${item.id}</span></a>
+                        </div>
+                        <div class="order-cart_product__date">
+                            <span>${item.date}</span>
+                        </div>
+                        <div class="order-cart_product__status">
+                            <span>${item.status}</span>
+                        </div>
+                        <div class="order-cart_product__total">
+                            <span>$ ${item.total}</span>
+                        </div>
+                    </div>
+                    `;
+                });
+            }
+        }
+    })
+    
+}
+order();
+
+function orderDetail(id) {
+    let orders = JSON.parse(localStorage.getItem('orders'));
+    let orders_details = document.querySelector('.order-details');
+    Object.values(orders).map((order) => {
+        if (order.id == id) {
+            orders_details.innerHTML = '';
+            Object.values(order.product).map((item) => {
+                orders_details.innerHTML += `
+                    <div class="order-detail-menu">
+                        <div class="order-detail__imagine">
+                            <img src="${item.imagine}" />
+                        </div>
+                    
+                        <div class="order-detail-nameproduct">
+                            <span class="order-detail__name">${item.nameproduct}</span>
+                        </div>
+                    
+                        <div class="order-detail__quantity"><span>${item.inCart}</span></div>
+                    
+                        <div class="order-detail__total">$ ${item.price},00</div>
+                    </div>
+                `
+            });
+        }
+    })
+}
+
+orderDetail();
+
+function checkOut() {
+
+    let orders = localStorage.getItem('orders') ? JSON.parse(localStorage.getItem('orders')) : [];
+
+    let cartItems = localStorage.getItem('productInCart');
+    cartItems = JSON.parse(cartItems);
+
+    let productNumbers = JSON.parse(localStorage.getItem('cartNumbers'));
+    let totalCost = JSON.parse(localStorage.getItem('totalCost'));
+    const date = new Date()
+    const current = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+    const order = {
+        id: uuid(),
+        product: cartItems,
+        date: current,
+        total: totalCost,
+        status: 'processing',
+        user: localStorage.getItem('nameAccount'),
+    }
+    orders.push(order);
+    localStorage.setItem('orders',JSON.stringify(orders));
+    cartItems = [];
+    localStorage.setItem('productInCart',JSON.stringify(cartItems))
+    alert('Bạn đã đặt hàng thành công');
+    totalCost = 0;
+    productNumbers = 0;
+    localStorage.setItem('totalCost', totalCost);
+    localStorage.setItem('cartNumbers', productNumbers);
+    displayCart();
+    onLoadCartNumbers();
+}
+
+
 
 displayCart();
 onLoadCartNumbers();
